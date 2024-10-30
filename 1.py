@@ -1,23 +1,51 @@
 class PersegiPanjang:
-    # Konstruktor untuk inisialisasi(proses awal) properti panjang dan lebar
+    
+    #Konstruktor untuk inisialisasi objek PersegiPanjang.
     def __init__(self, panjang, lebar):
-        self.panjang = panjang #self = explisit
+        
+        self.panjang = panjang
         self.lebar = lebar
 
-    # Fungsi untuk menghitung keliling
-    def keliling(self): # parameter yang digunakan di dalam metode kelas untuk merujuk ke instance (objek) tertentu dari kelas tersebut.
+    #Menghitung keliling persegi panjang.
+    def keliling(self):
+
         return 2 * (self.panjang + self.lebar)
 
-    # Fungsi untuk menghitung luas
+    #Menghitung luas persegi panjang.
     def luas(self):
+
         return self.panjang * self.lebar
 
-    # Fungsi __str__ untuk representasi string dari objek
+    #Mengembalikan representasi string dari objek PersegiPanjang.
     def __str__(self):
-        return f"Panjangnya adalah {self.panjang} cm dan lebarnya adalah {self.lebar} cm"
 
-pp = PersegiPanjang(745, 195)
+        return f"Persegi panjang, panjang {self.panjang} cm, dan lebar {self.lebar} cm"
 
-print(pp.__str__()) # Persegi Panjang, panjang 745 cm, dan lebar 195 cm
-print("Keliling:", pp.keliling(), "cm")
-print("Luas:", pp.luas(), "cm^2")
+
+def main():
+    print("=== Program Persegi Panjang ===")
+    
+    try:
+        # Meminta input panjang dan lebar dari pengguna
+        panjang = float(input("Masukkan panjang persegi panjang (cm): "))
+        lebar = float(input("Masukkan lebar persegi panjang (cm): "))
+        
+        # Validasi input
+        if panjang <= 0 or lebar <= 0:
+            print("Panjang dan lebar harus bernilai positif!")
+            return
+        
+        # Membuat objek PersegiPanjang
+        persegi_panjang = PersegiPanjang(panjang, lebar)
+        
+        # Menampilkan informasi dan hasil perhitungan
+        print("\n=== Hasil Perhitungan ===")
+        print(persegi_panjang)
+        print("Keliling:", persegi_panjang.keliling(), "cm")
+        print("Luas:", persegi_panjang.luas(), "cm²")
+        
+    except ValueError:
+        print("Input tidak valid! Harap masukkan angka.")
+
+# Menjalankan program utama
+main()
